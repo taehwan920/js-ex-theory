@@ -80,20 +80,24 @@ if (age >= 18 && age <= 21) {
 }*/
 
 const title = document.querySelector("#title");
-const BASE_COLOR = "rgb(52, 73, 94)";
-const OTHER_COLOR = "#7f8c8d";
 
+const CLICKED_CLASS = "clicked";
+
+//!== means NOT EQUAL
 function handleClick() {
-  const currentColor = title.style.color;
-  if (currentColor === BASE_COLOR) {
-    title.style.color = OTHER_COLOR;
+  title.classList.toggle(CLICKED_CLASS);
+  //밑의 코드들과 위 코드는 같은뜻
+  /*const hasClass = title.classList.contains(CLICKED_CLASS);
+  //!(함수or변수)는 그 반대상황(false)을 얘기.
+  if (!hasClass) {
+    title.classList.add(CLICKED_CLASS);
   } else {
-    title.style.color = BASE_COLOR;
-  }
+    title.classList.remove(CLICKED_CLASS);
+  }*/
 }
+
 /*이벤트의 종류를 알고싶으면 mdn을 검색할것*/
 function init() {
-  title.style.color = BASE_COLOR;
-  title.addEventListener("mouseenter", handleClick);
+  title.addEventListener("click", handleClick);
 }
 init();
